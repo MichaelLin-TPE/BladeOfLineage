@@ -6,6 +6,9 @@
     <title>幻刃天堂</title>
     <link rel="stylesheet" href="./home_style.css" />
     <link rel="icon" href="./images/logo.webp" type="image/x-icon" />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
   </head>
   <body>
     <div class="bg">
@@ -24,6 +27,13 @@
           <img id="title" src="./images/lineage_title.png" alt="logo-title" />
 
           <div class="black-overlay">
+            <div class="server_status">
+              <img
+                id="server_status_icon"
+                src="./images/lineage_server_status_disable.png"
+                alt=""
+              />
+            </div>
             <div class="user_guide">
               <img
                 id="user_guide_icon"
@@ -60,7 +70,8 @@
       </div>
 
       <!-- Logo 部分 -->
-      <script type="module" src="script.js"></script>
+      <script src="script.js"></script>
+      <script src="firebase-handler.js"></script>
     </div>
   </body>
 </html>
