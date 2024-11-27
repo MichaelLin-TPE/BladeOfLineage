@@ -1,3 +1,32 @@
+//---------------------Import FirebaseSDK-------------------------------------
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAwqydxvsEBPHuijTsiM6VicY4d-GcOd7s",
+  authDomain: "bladeoflineage.firebaseapp.com",
+  projectId: "bladeoflineage",
+  storageBucket: "bladeoflineage.firebasestorage.app",
+  messagingSenderId: "33531551193",
+  appId: "1:33531551193:web:6dff1b1d24d0cd82054dc8",
+  measurementId: "G-CL2G21H2T4",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+//---------------------Import FirebaseSDK-------------------------------------
+
 //----------------------動態調整黑色背景高度-------------------------------
 
 function adjustOverlayHeight() {
