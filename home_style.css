@@ -104,7 +104,6 @@ html {
   z-index: 40;
 }
 #server_status_icon {
-  cursor: pointer;
   width: 150px;
   height: auto;
   margin-top: 20px;
