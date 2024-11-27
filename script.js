@@ -57,3 +57,18 @@ equipGuideIcon.addEventListener("mouseout", () => {
   equipGuideIcon.src = "./images/lineage_equip_guide.png";
 });
 //----------------------滑鼠移動更改裝備介紹圖片-------------------------------
+
+//----------------------滑鼠移動更改贊助介紹圖片-------------------------------
+// 獲取圖片元素
+const depositGuideIcon = document.getElementById("deposit_guide_icon");
+
+// 滑過時替換圖片
+depositGuideIcon.addEventListener("mouseover", () => {
+  depositGuideIcon.src = "./images/lineage_deposit_icon_active.png";
+});
+
+// 滑出時恢復原圖
+depositGuideIcon.addEventListener("mouseout", () => {
+  depositGuideIcon.src = "./images/lineage_deposit_icon.png";
+});
+//----------------------滑鼠移動更改贊助介紹圖片-------------------------------

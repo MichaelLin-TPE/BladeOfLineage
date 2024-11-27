@@ -140,3 +140,17 @@ html {
   margin-left: 20px;
   display: inline;
 }
+.deposit_guide {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 40;
+}
+#deposit_guide_icon {
+  cursor: pointer;
+  width: 200px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: inline;
+}
