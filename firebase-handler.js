@@ -37,3 +37,31 @@ docRef.onSnapshot(
     console.log("Error getting document: ", error);
   }
 );
+
+db.collection("new_info")
+  .get()
+  .then((querySnapshot) => {
+    const listContainer = document.getElementById("list-container");
+    const listContainer2 = document.getElementById("list-container2");
+
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      const data = doc.data();
+      const title = data.title;
+      const content = data.content;
+
+      const listItem = document.createElement("div");
+      listItem.className = "list-item";
+      listItem.textContent = title;
+      listContainer.appendChild(listItem);
+
+      const listItem2 = document.createElement("div");
+      listItem2.className = "list-item2";
+      listItem2.textContent = title;
+      listContainer2.appendChild(listItem2);
+    });
+  })
+  .catch((error) => {
+    console.log("Error getting documents: ", error);
+  });

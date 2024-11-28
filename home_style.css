@@ -167,3 +167,37 @@ html {
   margin-left: 20px;
   display: inline;
 }
+.new_info,
+.system_info {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.list-item {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.list-item2 {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-right: 200px;
+  margin-left: 240px;
+  width: auto;
+  height: 50px;
+}
