@@ -2,7 +2,7 @@
 
 function adjustOverlayHeight() {
   const windowHeight = window.innerHeight;
-  const newHeight = windowHeight - 320;
+  const newHeight = windowHeight - 380;
   const blackOverlay = document.querySelector(".black-overlay");
   if (blackOverlay) {
     blackOverlay.style.height = `${newHeight}px`;

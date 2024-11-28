@@ -12,10 +12,8 @@
   </head>
   <body>
     <div class="bg">
-      <!-- Action Bar 背景 -->
+      <!-- actionBar------------------>
       <div class="action_bar_bg">
-        <img src="./images/action_bar.png" alt="Action Bar" />
-        <!-- Action Bar 文字 -->
         <div class="action-bar-text">
           <span>最新消息</span>
           <span>遊戲介紹</span>
@@ -23,66 +21,54 @@
           <span>聯絡客服</span>
           <span>贊助內容</span>
         </div>
-        <div class="logo-title-container">
-          <img id="title" src="./images/lineage_title.png" alt="logo-title" />
+      </div>
+      <!-- actionBar------------------>
 
-          <div class="black-overlay">
-            <div class="server_status">
-              <img
-                id="server_status_icon"
-                src="./images/lineage_server_status_disable.png"
-                alt=""
-              />
-            </div>
-            <div class="user_guide">
-              <img
-                id="user_guide_icon"
-                src="./images/lineage_new_user_guide.png"
-                alt="user_guide"
-              />
-              <div class="skill_guide">
-                <img
-                  id="skill_guide_icon"
-                  src="./images/lineage_skill_guide.png"
-                  alt="skill_guide"
-                />
-                <div class="equip_guide">
-                  <img
-                    id="equip_guide_icon"
-                    src="./images/lineage_equip_guide.png"
-                    alt="equip_guide"
-                  />
-                  <div class="deposit_guide">
-                    <img
-                      id="deposit_guide_icon"
-                      src="./images/lineage_deposit_icon.png"
-                      alt="deposit_guide"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="wrapper">
-              <div class="new_info">
-                <b style="color: white">最新活動</b>
-                <div id="list-container"></div>
-              </div>
-              <div class="system_info">
-                <b style="color: white">系統信息</b>
-                <div id="list-container2"></div>
-              </div>
-            </div>
-          </div>
+      <!-- icon_lists ----------------------------->
+      <div class="icons_list">
+        <div class="first_icon_list">
+          <img
+            id="deposit_guide_icon"
+            src="./images/lineage_deposit_icon.png"
+            alt="deposit_guide"
+          />
+          <img
+            id="user_guide_icon"
+            src="./images/lineage_new_user_guide.png"
+            alt="user_guide"
+          />
         </div>
-        <div class="logo-container">
-          <img id="logo" src="./images/lineage_logo.png" alt="logo" />
+
+        <div class="second_icon_list">
+          <img
+            id="skill_guide_icon"
+            src="./images/lineage_skill_guide.png"
+            alt="skill_guide"
+          />
+          <img
+            id="equip_guide_icon"
+            src="./images/lineage_equip_guide.png"
+            alt="equip_guide"
+          />
         </div>
       </div>
+      <!-- icon_lists ---------------------------->
 
-      <!-- Logo 部分 -->
-      <script src="script.js"></script>
-      <script src="firebase-handler.js"></script>
+      <div class="black-overlay">
+        <div class="wrapper">
+          <div class="new_info">
+            <b style="color: white">最新活動</b>
+            <div id="list-container"></div>
+          </div>
+          <div class="system_info">
+            <b style="color: white">系統信息</b>
+            <div id="list-container2"></div>
+          </div>
+        </div>
+      </div>
     </div>
+    <img id="title" src="./images/lineage_title.png" alt="logo-title" />
+    <script src="script.js"></script>
+    <script src="firebase-handler.js"></script>
   </body>
 </html>
