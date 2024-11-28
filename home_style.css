@@ -171,9 +171,11 @@ html {
 .system_info {
   width: 100%;
   box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .list-item {
+  margin-top: 5px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 5px;
@@ -182,6 +184,7 @@ html {
 }
 
 .list-item2 {
+  margin-top: 5px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 5px;
@@ -204,7 +207,7 @@ html {
   left: 0;
   right: 0;
   margin-right: 200px;
-  margin-left: 240px;
+  margin-left: 260px;
   width: auto;
   height: 50px;
 }
