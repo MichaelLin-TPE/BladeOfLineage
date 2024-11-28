@@ -42,24 +42,48 @@ db.collection("new_info")
   .get()
   .then((querySnapshot) => {
     const listContainer = document.getElementById("list-container");
-    const listContainer2 = document.getElementById("list-container2");
 
+    let index = 0;
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-      const data = doc.data();
-      const title = data.title;
-      const content = data.content;
+      if (index <= 5) {
+        console.log(doc.id, " => ", doc.data());
+        const data = doc.data();
+        const title = data.title;
+        const content = data.content;
 
-      const listItem = document.createElement("div");
-      listItem.className = "list-item";
-      listItem.textContent = title;
-      listContainer.appendChild(listItem);
+        const listItem = document.createElement("div");
+        listItem.className = "list-item";
+        listItem.textContent = title;
+        listContainer.appendChild(listItem);
+      }
 
-      const listItem2 = document.createElement("div");
-      listItem2.className = "list-item2";
-      listItem2.textContent = title;
-      listContainer2.appendChild(listItem2);
+      index++;
+    });
+  })
+  .catch((error) => {
+    console.log("Error getting documents: ", error);
+  });
+
+db.collection("system_info")
+  .get()
+  .then((querySnapshot) => {
+    const listContainer2 = document.getElementById("list-container2");
+    let index = 0;
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      if (index <= 5) {
+        console.log(doc.id, " => ", doc.data());
+        const data = doc.data();
+        const title = data.title;
+        const content = data.content;
+
+        const listItem2 = document.createElement("div");
+        listItem2.className = "list-item2";
+        listItem2.textContent = title;
+        listContainer2.appendChild(listItem2);
+      }
+      index++;
     });
   })
   .catch((error) => {
