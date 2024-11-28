@@ -76,3 +76,4 @@ depositGuideIcon.addEventListener("mouseout", () => {
 //-----------------------把圖票加入時間戳-------------------------------------
 const img = document.getElementsByName("title");
 img.src = "../images/lineage_title.png?v=" + new Date().getTime();
+//-----------------------把圖票加入時間戳-------------------------------------
