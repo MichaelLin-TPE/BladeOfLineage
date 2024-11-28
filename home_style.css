@@ -74,21 +74,28 @@ html {
   margin-left: 50px;
 }
 #deposit_guide_icon {
-  margin-left: 300px;
+  width: 220px;
+  height: 110px;
+  margin-left: 350px;
   cursor: pointer;
 }
 #user_guide_icon {
+  width: 220px;
+  height: 110px;
   margin-left: 25px;
   cursor: pointer;
 }
 
 #skill_guide_icon {
+  width: 220px;
+  height: 110px;
   margin-left: 400px;
   cursor: pointer;
 }
 #equip_guide_icon {
+  width: 220px;
+  height: 113px;
   margin-left: 25px;
-
   cursor: pointer;
 }
 .black-overlay {

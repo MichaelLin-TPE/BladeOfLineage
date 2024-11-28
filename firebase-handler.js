@@ -46,7 +46,7 @@ db.collection("new_info")
     let index = 0;
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      if (index <= 5) {
+      if (index <= 4) {
         console.log(doc.id, " => ", doc.data());
         const data = doc.data();
         const title = data.title;
@@ -72,7 +72,7 @@ db.collection("system_info")
     let index = 0;
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      if (index <= 5) {
+      if (index <= 4) {
         console.log(doc.id, " => ", doc.data());
         const data = doc.data();
         const title = data.title;
