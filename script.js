@@ -72,3 +72,7 @@ depositGuideIcon.addEventListener("mouseout", () => {
   depositGuideIcon.src = "./images/lineage_deposit_icon.png";
 });
 //----------------------滑鼠移動更改贊助介紹圖片-------------------------------
+
+//-----------------------把圖票加入時間戳-------------------------------------
+const img = document.getElementsByName("title");
+img.src = "../images/lineage_title.png?v=" + new Date().getTime();
