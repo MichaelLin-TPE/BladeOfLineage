@@ -61,6 +61,28 @@ html {
   flex-direction: row;
   align-items: center;
 }
+#contact_us {
+  width: 100px;
+  height: 100px;
+  top: 0;
+  right: 0;
+  display: inline;
+  top: 50px;
+  margin-right: 50px;
+  position: fixed;
+  cursor: move;
+}
+#community {
+  width: 120px;
+  height: 100px;
+  top: 0;
+  right: 0;
+  display: inline;
+  top: 200px;
+  margin-right: 50px;
+  position: fixed;
+  cursor: move;
+}
 
 #title {
   width: 500px; /* Logo 寬度，可調整 */
