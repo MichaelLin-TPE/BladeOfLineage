@@ -40,7 +40,10 @@ html {
   font-family: Arial, sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文字陰影 */
 }
-
+.action-bar-text a {
+  text-decoration: none; /* 去掉底線 */
+  color: inherit; /* 繼承文字顏色 */
+}
 .action-bar-text span {
   cursor: pointer;
   padding: 0 10px;
