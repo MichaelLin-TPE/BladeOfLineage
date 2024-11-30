@@ -25,15 +25,200 @@ html {
   align-items: center;
   margin-left: 150px;
   justify-content: center;
-  top: 9;
+  top: 0;
   left: 0;
 }
 #news_info {
+  cursor: pointer;
   width: 200px;
   height: 140px;
 }
 #system_info {
+  cursor: pointer;
   margin-top: 120px;
   width: 200px;
   height: 140px;
+}
+.logo_view {
+  cursor: pointer;
+  background-image: url("./images/lineage_title.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 300px; /* 根據需要設置寬度 */
+  height: 100px; /* 根據需要設置高度 */
+  display: inline-block;
+  position: absolute; /* 使用絕對定位 */
+  bottom: 0; /* 固定在螢幕底部 */
+  right: 0; /* 固定在螢幕左側 */
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.logo_view a {
+  display: block; /* 讓 <a> 充滿父容器 */
+  width: 100%; /* 寬度填滿父容器 */
+  height: 100%; /* 高度填滿父容器 */
+  position: absolute; /* 絕對定位以覆蓋父容器 */
+  top: 0;
+  left: 0;
+  text-indent: -9999px; /* 隱藏文字（如果有） */
+}
+.main_news_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 每行兩個項目 */
+  gap: 20px; /* 項目之間的間距 */
+  padding: 35px; /* 容器的內邊距 */
+  width: 100%; /* 讓寬度自適應螢幕 */
+  max-width: calc(100% - 40px); /* 可選：設置最大寬度，避免緊貼螢幕邊緣 */
+  border-radius: 15px; /* 設置圓角為 15px */
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
+  margin-top: 25px;
+  margin-left: 50px; /* 清除固定的 margin */
+  margin-right: 350px;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
+}
+.main_news_list::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
+}
+
+.main_news_list::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+.main_news_list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滾動條懸停顏色 */
+}
+.item {
+  cursor: pointer;
+  background-color: rgba(223, 223, 223, 0.7); /* 深色背景提高對比 */
+  color: white; /* 白色文字 */
+  border-radius: 8px; /* 圓角 */
+
+  padding: 20px; /* 內邊距 */
+  font-family: Arial, sans-serif; /* 字體 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+  display: flex; /* 使用 Flexbox 排列 */
+  flex-direction: column; /* 垂直排列 */
+  text-align: left; /* 文字居中 */
+  overflow: hidden; /* 避免內容超出容器 */
+  height: 300px; /* 固定高度 */
+}
+.item:hover {
+  background-color: rgba(201, 134, 134, 0.7); /* 整個 item 的背景變色 */
+}
+
+.item-title,
+.item-content {
+  white-space: nowrap; /* 限制為單行 */
+  text-overflow: ellipsis; /* 超出部分以...顯示 */
+  overflow: hidden;
+  width: 100%;
+  margin: 5px 0; /* 上下間距 */
+}
+
+.item-title {
+  font-size: 16px; /* 標題字體大小 */
+  font-weight: bold; /* 標題加粗 */
+  color: rgb(228, 228, 228);
+}
+
+.item-content {
+  font-size: 20px; /* 內容字體大小 */
+  color: rgb(0, 0, 0); /* 內容顏色 */
+  font-weight: bold; /* 標題加粗 */
+  margin-top: 10px;
+}
+
+.item-image {
+  flex: 1; /* 剩餘高度分配給圖片 */
+  display: flex; /* 圖片容器居中顯示 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  margin-top: 5px;
+}
+
+.item-image img {
+  width: 100%; /* 圖片寬度填充容器 */
+  height: 230px; /* 圖片高度填充容器 */
+  object-fit: cover; /* 確保圖片按比例填充 */
+  border-radius: 8px; /* 保持圖片邊角圓滑 */
+}
+.overlay {
+  position: fixed;
+  border-radius: 15px; /* 圓角 */
+  top: 50%; /* 元素頂部與視窗的 50% */
+  left: 50%; /* 元素左側與視窗的 50% */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 向左、向上移動自身的 50% 寬/高，實現居中 */
+  width: 58%; /* 設置寬度 */
+  height: 100%; /* 設置高度 */
+  background-color: rgb(230, 230, 230); /* 半透明灰色背景 */
+  display: none; /* 預設隱藏 */
+  opacity: 0; /* 初始透明度 */
+  z-index: 1000; /* 確保在所有元素之上 */
+  transition: opacity 0.3s ease-in-out; /* 添加漸顯動畫 */
+  display: flex; /* 使用 Flexbox 排列 */
+  flex-direction: column; /* 垂直排列 */
+  text-align: left; /* 文字居中 */
+  padding: 40px;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
+  margin-left: 30px;
+}
+
+.overlay::-webkit-scrollbar {
+  width: 2px; /* 滾動條寬度 */
+}
+
+.overlay::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+.overlay-date {
+  margin-top: 20px;
+  font-size: 16px; /* 標題字體大小 */
+  font-weight: bold; /* 標題加粗 */
+  color: rgb(19, 18, 18);
+  text-align: right;
+}
+
+.overlay-title {
+  font-size: 25px; /* 標題字體大小 */
+  font-weight: bold; /* 標題加粗 */
+  color: rgb(17, 17, 17);
+  margin-top: 20px;
+  word-wrap: break-word; /* 長單詞換行 */
+  word-break: break-word; /* 防止文字溢出容器 */
+  white-space: normal; /* 確保允許自動換行 */
+}
+
+.overlay-content {
+  font-size: 18px; /* 內容字體大小 */
+  color: rgb(122, 121, 121); /* 內容顏色 */
+  font-weight: bold; /* 標題加粗 */
+  margin-top: 10px;
+  margin-top: 20px;
+  word-wrap: break-word; /* 長單詞換行 */
+  word-break: break-word; /* 防止文字溢出容器 */
+  white-space: normal; /* 確保允許自動換行 */
+}
+
+.overlay-image {
+  flex: 1; /* 剩餘高度分配給圖片 */
+  display: flex; /* 圖片容器居中顯示 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  margin-top: 5px;
+}
+.overlay-image img {
+  margin-top: 20px;
+  width: 100%; /* 圖片寬度填充容器 */
+  height: auto; /* 圖片高度填充容器 */
+  object-fit: cover; /* 確保圖片按比例填充 */
+  border-radius: 8px; /* 保持圖片邊角圓滑 */
 }
