@@ -88,36 +88,36 @@ contactUs.addEventListener("click", () => {
 community.addEventListener("click", () => {
   handleClick();
 });
-const contactUsArea = document.querySelector(".contact_us_area");
+// const contactUsArea = document.querySelector(".contact_us_area");
 
-let isDragging = false; // 用於判斷是否正在拖動
+// let isDragging = false; // 用於判斷是否正在拖動
 
-contactUsArea.addEventListener("mousedown", function (event) {
-  let shiftX = event.clientX - contactUsArea.getBoundingClientRect().left;
-  let shiftY = event.clientY - contactUsArea.getBoundingClientRect().top;
+// contactUsArea.addEventListener("mousedown", function (event) {
+//   let shiftX = event.clientX - contactUsArea.getBoundingClientRect().left;
+//   let shiftY = event.clientY - contactUsArea.getBoundingClientRect().top;
 
-  function moveAt(pageX, pageY) {
-    contactUsArea.style.left = pageX - shiftX + "px";
-    contactUsArea.style.top = pageY - shiftY + "px";
-  }
+//   function moveAt(pageX, pageY) {
+//     contactUsArea.style.left = pageX - shiftX + "px";
+//     contactUsArea.style.top = pageY - shiftY + "px";
+//   }
 
-  moveAt(event.pageX, event.pageY);
+//   moveAt(event.pageX, event.pageY);
 
-  function onMouseMove(event) {
-    moveAt(event.pageX, event.pageY);
-  }
+//   function onMouseMove(event) {
+//     moveAt(event.pageX, event.pageY);
+//   }
 
-  document.addEventListener("mousemove", onMouseMove);
+//   document.addEventListener("mousemove", onMouseMove);
 
-  document.addEventListener("mouseup", function onMouseUp() {
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-  });
+//   document.addEventListener("mouseup", function onMouseUp() {
+//     document.removeEventListener("mousemove", onMouseMove);
+//     document.removeEventListener("mouseup", onMouseUp);
+//   });
 
-  contactUsArea.ondragstart = function () {
-    return false;
-  };
-});
+//   contactUsArea.ondragstart = function () {
+//     return false;
+//   };
+// });
 
 // 點擊事件的處理函數
 function handleClick() {

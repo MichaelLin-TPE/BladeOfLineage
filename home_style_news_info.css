@@ -45,7 +45,7 @@ html {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 300px; /* 根據需要設置寬度 */
-  height: 100px; /* 根據需要設置高度 */
+  height: 120px; /* 根據需要設置高度 */
   display: inline-block;
   position: absolute; /* 使用絕對定位 */
   bottom: 0; /* 固定在螢幕底部 */

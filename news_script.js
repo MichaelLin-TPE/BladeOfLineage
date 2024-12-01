@@ -11,6 +11,11 @@ function adjustOverlayHeight() {
 window.addEventListener("load", adjustOverlayHeight);
 window.addEventListener("resize", adjustOverlayHeight);
 
+function navigateToIndex(event) {
+  event.preventDefault(); // 阻止默認的超連結行為
+  location.replace("./index.html"); // 替換當前頁面的歷史記錄
+}
+
 //----------------------動態調整黑色背景高度-------------------------------
 
 //----------------------滑鼠移動更改攻略圖片-------------------------------

@@ -1,0 +1,123 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background-color: black;
+}
+.bg {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url("./images/lineage_news_info_bg.webp");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: greenyellow;
+  position: relative;
+}
+.donate_icon_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+#donate_icon {
+  width: 250px;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  margin-left: 30px;
+}
+.logo_view {
+  cursor: pointer;
+  background-image: url("./images/lineage_title.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 300px; /* 根據需要設置寬度 */
+  height: 120px; /* 根據需要設置高度 */
+  display: inline-block;
+  position: absolute; /* 固定位置 */
+  bottom: 20px; /* 從螢幕底部距離 */
+  right: 20px; /* 從螢幕右側距離 */
+}
+
+.logo_view a {
+  display: block; /* 讓 <a> 充滿父容器 */
+  width: 100%; /* 寬度填滿父容器 */
+  height: 100%; /* 高度填滿父容器 */
+  position: absolute; /* 絕對定位以覆蓋父容器 */
+  top: 0;
+  left: 0;
+  text-indent: -9999px; /* 隱藏文字（如果有） */
+}
+
+.main_news_list {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, 1fr); /* 每行兩個項目 */
+  gap: 20px; /* 項目之間的間距 */
+  padding: 35px; /* 容器的內邊距 */
+  width: 100%; /* 讓寬度自適應螢幕 */
+  height: 80%;
+  margin-top: 25px;
+  margin-left: 340px; /* 清除固定的 margin */
+  margin-right: 340px;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
+}
+.main_news_list::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
+}
+
+.main_news_list::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+.main_news_list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滾動條懸停顏色 */
+}
+.item {
+  cursor: pointer;
+  background-image: url("./images/lineage_donate_item.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: white; /* 白色文字 */
+  border-radius: 8px; /* 圓角 */
+  padding: 20px; /* 內邊距 */
+  font-family: Arial, sans-serif; /* 字體 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+  display: flex; /* 使用 Flexbox 排列 */
+  flex-direction: column; /* 垂直排列 */
+  text-align: left; /* 文字居中 */
+  overflow: hidden; /* 避免內容超出容器 */
+  height: auto; /* 固定高度 */
+}
+
+.item-title,
+.item-content {
+  white-space: nowrap; /* 限制為單行 */
+  text-overflow: ellipsis; /* 超出部分以...顯示 */
+  overflow: hidden;
+  width: 100%;
+  margin: 5px 0; /* 上下間距 */
+}
+
+.item-title {
+  font-size: 16px; /* 標題字體大小 */
+  font-weight: bold; /* 標題加粗 */
+  color: rgb(228, 228, 228);
+}
+
+.item-content {
+  font-size: 20px; /* 內容字體大小 */
+  color: rgb(0, 0, 0); /* 內容顏色 */
+  font-weight: bold; /* 標題加粗 */
+  margin-top: 10px;
+}
