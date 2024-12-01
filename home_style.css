@@ -64,27 +64,33 @@ html {
   flex-direction: row;
   align-items: center;
 }
-#contact_us {
-  width: 100px;
-  height: 120px;
-  top: 0;
-  right: 0;
-  display: inline;
-  top: 50px;
-  margin-right: 50px;
+.contact_us_area {
+  padding: 10px;
+  display: flex; /* 改為 inline-block 或 block */
+  flex-direction: column;
   position: fixed;
   cursor: move;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  margin-right: 50px;
+  border-radius: 15px; /* 設置圓角為 15px */
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
+  width: 120px; /* 固定寬度 */
+  height: auto; /* 自適應高度，或固定高度 */
+  bottom: 0;
+  margin-bottom: 25px;
+}
+#contact_us {
+  margin-top: 15px;
+  width: 100px;
+  height: 120px;
 }
 #community {
+  margin-top: 15px;
+  margin-bottom: 15px;
   width: 100px;
   height: 120px;
-  top: 0;
-  right: 0;
-  display: inline;
-  top: 200px;
-  margin-right: 50px;
-  position: fixed;
-  cursor: move;
 }
 
 #title {

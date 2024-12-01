@@ -81,24 +81,29 @@ img.src = "../images/lineage_title.png?v=" + new Date().getTime();
 //-----------------------Floating icon---------------------------------------
 // 選取圖片元素
 const contactUs = document.getElementById("contact_us");
+const community = document.getElementById("community");
+contactUs.addEventListener("click", () => {
+  handleClick();
+});
+community.addEventListener("click", () => {
+  handleClick();
+});
+const contactUsArea = document.querySelector(".contact_us_area");
 
 let isDragging = false; // 用於判斷是否正在拖動
 
-contactUs.addEventListener("mousedown", function (event) {
-  let shiftX = event.clientX - contactUs.getBoundingClientRect().left;
-  let shiftY = event.clientY - contactUs.getBoundingClientRect().top;
-
-  isDragging = false; // 初始化為 false
+contactUsArea.addEventListener("mousedown", function (event) {
+  let shiftX = event.clientX - contactUsArea.getBoundingClientRect().left;
+  let shiftY = event.clientY - contactUsArea.getBoundingClientRect().top;
 
   function moveAt(pageX, pageY) {
-    contactUs.style.left = pageX - shiftX + "px";
-    contactUs.style.top = pageY - shiftY + "px";
+    contactUsArea.style.left = pageX - shiftX + "px";
+    contactUsArea.style.top = pageY - shiftY + "px";
   }
 
   moveAt(event.pageX, event.pageY);
 
   function onMouseMove(event) {
-    isDragging = true; // 拖動發生了
     moveAt(event.pageX, event.pageY);
   }
 
@@ -107,14 +112,9 @@ contactUs.addEventListener("mousedown", function (event) {
   document.addEventListener("mouseup", function onMouseUp() {
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
-
-    if (!isDragging) {
-      // 如果沒有拖動，則視為點擊
-      handleClick();
-    }
   });
 
-  contactUs.ondragstart = function () {
+  contactUsArea.ondragstart = function () {
     return false;
   };
 });
@@ -125,47 +125,3 @@ function handleClick() {
   // 這裡可以放其他你想要執行的功能
 }
 //-----------------------Floating icon---------------------------------------
-
-const community = document.getElementById("community");
-let isDragging2 = false; // 用於判斷是否正在拖動
-
-community.addEventListener("mousedown", function (event) {
-  let shiftX = event.clientX - community.getBoundingClientRect().left;
-  let shiftY = event.clientY - community.getBoundingClientRect().top;
-
-  isDragging2 = false; // 初始化為 false
-
-  function moveAt(pageX, pageY) {
-    community.style.left = pageX - shiftX + "px";
-    community.style.top = pageY - shiftY + "px";
-  }
-
-  moveAt(event.pageX, event.pageY);
-
-  function onMouseMove(event) {
-    isDragging2 = true; // 拖動發生了
-    moveAt(event.pageX, event.pageY);
-  }
-
-  document.addEventListener("mousemove", onMouseMove);
-
-  document.addEventListener("mouseup", function onMouseUp() {
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-
-    if (!isDragging2) {
-      // 如果沒有拖動，則視為點擊
-      handleClick();
-    }
-  });
-
-  community.ondragstart = function () {
-    return false;
-  };
-});
-
-// 點擊事件的處理函數
-function handleClick() {
-  alert("你點擊了聯繫我們的圖標！");
-  // 這裡可以放其他你想要執行的功能
-}
