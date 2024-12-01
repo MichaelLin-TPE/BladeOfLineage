@@ -14,98 +14,115 @@ firebase.initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = firebase.firestore();
 
-db.collection("new_info")
-  .get()
-  .then((querySnapshot) => {
-    const container = document.querySelector(".main_news_list"); // 選取容器
-    // 創建灰色遮罩並添加到 DOM
-    const overlay = document.createElement("div");
-    createOverLayView(overlay);
+const newsIcon = document.getElementById("news_info");
+const systemIcon = document.getElementById("system_info");
 
-    overlay.addEventListener("click", () => {
-      overlay.style.opacity = "0";
-      setTimeout(() => {
-        overlay.style.display = "none";
-      }, 300); // 與動畫時間一致
-    });
+newsIcon.addEventListener("click", () => {
+  newsIcon.src = "./images/lineage_news_info_icon_active.png";
+  systemIcon.src = "./images/lineage_system_info_icon.png";
+  getNewsData("news_info");
+});
 
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
+systemIcon.addEventListener("click", () => {
+  systemIcon.src = "./images/lineage_system_info_icon_active.png";
+  newsIcon.src = "./images/lineage_news_info_icon.png";
+  getNewsData("system_info");
+});
 
-      console.log(doc.id, " => ", doc.data());
-      const data = doc.data();
-      const titleFromServer = data.title;
-      const contentFromServer = data.content;
-      const imageFromServer = data.image_url;
-      const dateFromServer = data.date;
+getNewsData("news_info");
 
-      const div = document.createElement("div");
-      div.className = "item"; // 添加樣式類
+function getNewsData(id) {
+  const container = document.querySelector(".main_news_list");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  const overlayView = document.querySelector(".overlay");
+  if (overlayView) {
+    overlayView.remove();
+  }
 
-      // 創建標題
-      const title = document.createElement("div");
-      title.className = "item-title";
-      title.textContent = getTime(dateFromServer);
+  let tableId = "";
+  if (id == "news_info") {
+    tableId = "new_info";
+  } else {
+    tableId = "system_info";
+  }
 
-      // 創建內容
-      const content = document.createElement("div");
-      content.className = "item-content";
-      content.textContent = titleFromServer;
+  db.collection(tableId)
+    .get()
+    .then((querySnapshot) => {
+      const container = document.querySelector(".main_news_list"); // 選取容器
+      // 創建灰色遮罩並添加到 DOM
+      const overlay = document.createElement("div");
+      createOverLayView(overlay);
 
-      // 創建圖片容器
-      const imageContainer = document.createElement("div");
-      imageContainer.className = "item-image";
-
-      // 創建圖片
-      const image = document.createElement("img");
-      image.src = imageFromServer;
-      image.alt = "img";
-
-      // 將圖片添加到圖片容器
-      imageContainer.appendChild(image);
-
-      // 將標題、內容和圖片容器添加到項目容器
-      div.appendChild(title);
-      div.appendChild(content);
-      div.appendChild(imageContainer);
-      // 點擊 item 顯示灰色遮罩
-      div.addEventListener("click", () => {
-        overlay.style.display = "block"; // 顯示遮罩
+      overlay.addEventListener("click", () => {
+        overlay.style.opacity = "0";
         setTimeout(() => {
-          overlay.style.opacity = "1"; // 動畫漸顯
-        }, 10); // 延遲確保 display 已生效
-        showOverlayData(
-          titleFromServer,
-          contentFromServer,
-          dateFromServer,
-          imageFromServer
-        );
+          overlay.style.display = "none";
+        }, 300); // 與動畫時間一致
       });
-      // 將項目容器添加到主容器
-      container.appendChild(div);
+
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+
+        console.log(doc.id, " => ", doc.data());
+        const data = doc.data();
+        const titleFromServer = data.title;
+        const contentFromServer = data.content;
+        const imageFromServer = data.image_url;
+        const dateFromServer = data.date;
+
+        const div = document.createElement("div");
+        div.className = "item"; // 添加樣式類
+
+        // 創建標題
+        const title = document.createElement("div");
+        title.className = "item-title";
+        title.textContent = getTime(dateFromServer);
+
+        // 創建內容
+        const content = document.createElement("div");
+        content.className = "item-content";
+        content.textContent = titleFromServer;
+
+        // 創建圖片容器
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "item-image";
+
+        // 創建圖片
+        const image = document.createElement("img");
+        image.src = imageFromServer;
+        image.alt = "img";
+
+        // 將圖片添加到圖片容器
+        imageContainer.appendChild(image);
+
+        // 將標題、內容和圖片容器添加到項目容器
+        div.appendChild(title);
+        div.appendChild(content);
+        div.appendChild(imageContainer);
+        // 點擊 item 顯示灰色遮罩
+        div.addEventListener("click", () => {
+          overlay.style.display = "block"; // 顯示遮罩
+          setTimeout(() => {
+            overlay.style.opacity = "1"; // 動畫漸顯
+          }, 10); // 延遲確保 display 已生效
+          showOverlayData(
+            titleFromServer,
+            contentFromServer,
+            dateFromServer,
+            imageFromServer
+          );
+        });
+        // 將項目容器添加到主容器
+        container.appendChild(div);
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
     });
-  })
-  .catch((error) => {
-    console.log("Error getting documents: ", error);
-  });
-
-db.collection("system_info")
-  .get()
-  .then((querySnapshot) => {
-    // const listContainer2 = document.getElementById("list-container2");
-
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-
-      console.log(doc.id, " => ", doc.data());
-      const data = doc.data();
-      const title = data.title;
-      const content = data.content;
-    });
-  })
-  .catch((error) => {
-    console.log("Error getting documents: ", error);
-  });
+}
 
 function getTime(timestampFromServer) {
   // 將 Firebase timestamp 轉換為 JavaScript 的 Date 對象
