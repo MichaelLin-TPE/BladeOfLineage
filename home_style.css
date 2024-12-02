@@ -138,7 +138,23 @@ html {
   background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
   margin-top: 25px;
   margin-left: 370px;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
 }
+
+.black-overlay::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
+}
+
+.black-overlay::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+.black-overlay::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滾動條懸停顏色 */
+}
+
 .new_info,
 .system_info {
   margin-top: 20px;

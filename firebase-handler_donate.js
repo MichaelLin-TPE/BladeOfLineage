@@ -18,8 +18,8 @@ const db = firebase.firestore();
 //   db.collection("donate_list")
 //     .doc()
 //     .set({
-//       deposit_amount: "10000",
-//       deposit_title: "送+9瑟魯基",
+//       deposit_amount: "10,000",
+//       deposit_title: "查看贈品詳細",
 //       deposit_content: "滿額10000",
 //       createdAt: new Date().toISOString(),
 //     })
@@ -35,7 +35,16 @@ const db = firebase.firestore();
 // addDataToRealtimeDB();
 // addDataToRealtimeDB();
 // addDataToRealtimeDB();
+// addDataToRealtimeDB();
+// addDataToRealtimeDB();
+// addDataToRealtimeDB();
+// addDataToRealtimeDB();
 getNewsData();
+
+const dialog = document.getElementById("dialog");
+const amount_title = document.getElementById("amount_title");
+const deposit_title = document.getElementById("deposit_title");
+const deposit_content = document.getElementById("deposit_content");
 
 function getNewsData() {
   const container = document.querySelector(".main_news_list");
@@ -64,16 +73,39 @@ function getNewsData() {
         const div = document.createElement("div");
         div.className = "item"; // 添加樣式類
 
+        div.addEventListener("click", () => {
+          openDialog(
+            amountFromServer,
+            titleFromServer,
+            depositContentFromServer
+          );
+        });
+
         // 創建標題
         const title = document.createElement("div");
-        title.className = "item-title";
-        title.textContent = titleFromServer;
+        title.className = "icon-text";
+
+        const icon = document.createElement("img");
+        icon.alt = "small_icon";
+        icon.src = "./images/lineage_donate_small_icon.png";
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = amountFromServer; // 設置文字內容
 
         // 創建內容
         const content = document.createElement("div");
         content.className = "item-content";
-        content.textContent = depositContentFromServer;
+        const contentSpan = document.createElement("span");
+        contentSpan.textContent = "查看贈品詳情";
 
+        const small_icon2 = document.createElement("img");
+        small_icon2.className = "small_icon2";
+        small_icon2.src = "./images/lineage_donate_small_icon2.png";
+        content.appendChild(small_icon2);
+        content.append(contentSpan);
+        // 把 img 和 span 加入父容器
+        title.appendChild(icon);
+        title.appendChild(textSpan);
         // 將標題、內容和圖片容器添加到項目容器
         div.appendChild(title);
         div.appendChild(content);
@@ -85,3 +117,20 @@ function getNewsData() {
       console.log("Error getting documents: ", error);
     });
 }
+
+function openDialog(
+  amountFromServer,
+  titleFromServer,
+  depositContentFromServer
+) {
+  amount_title.textContent = amountFromServer;
+  deposit_title.textContent = titleFromServer;
+  deposit_content.textContent = depositContentFromServer;
+  dialog.classList.remove("hidden");
+}
+
+dialog.addEventListener("click", (event) => {
+  if (event.target == dialog) {
+    dialog.classList.add("hidden");
+  }
+});

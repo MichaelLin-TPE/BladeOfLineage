@@ -15,7 +15,7 @@ html {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   color: greenyellow;
   position: relative;
 }
@@ -61,63 +61,147 @@ html {
   display: grid;
   position: relative;
   grid-template-columns: repeat(3, 1fr); /* 每行兩個項目 */
-  gap: 20px; /* 項目之間的間距 */
-  padding: 35px; /* 容器的內邊距 */
+  gap: 20px 20px; /* 項目之間的間距 */
   width: 100%; /* 讓寬度自適應螢幕 */
   height: 80%;
-  margin-top: 25px;
+  margin-top: 5%;
   margin-left: 340px; /* 清除固定的 margin */
   margin-right: 340px;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
 }
 .main_news_list::-webkit-scrollbar {
-  width: 8px; /* 滾動條寬度 */
+  width: 5px; /* 滾動條寬度 */
 }
 
 .main_news_list::-webkit-scrollbar-thumb {
   background: #888; /* 滾動條顏色 */
-  border-radius: 4px; /* 滾動條圓角 */
+  border-radius: 2px; /* 滾動條圓角 */
 }
 .main_news_list::-webkit-scrollbar-thumb:hover {
   background: #555; /* 滾動條懸停顏色 */
 }
 .item {
+  height: auto;
   cursor: pointer;
   background-image: url("./images/lineage_donate_item.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%; /* 拉伸圖片以完全填充容器 */
   color: white; /* 白色文字 */
   border-radius: 8px; /* 圓角 */
-  padding: 20px; /* 內邊距 */
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif; /* 字體 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 陰影效果 */
   display: flex; /* 使用 Flexbox 排列 */
   flex-direction: column; /* 垂直排列 */
   text-align: left; /* 文字居中 */
-  overflow: hidden; /* 避免內容超出容器 */
-  height: auto; /* 固定高度 */
+}
+.icon-text {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center; /* 垂直置中 */
+  width: 100%; /* 確保容器足夠寬 */
+  justify-content: center; /* 水平向左對齊 */
 }
 
-.item-title,
+.icon-text img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: block; /* 確保圖片是區塊級，避免影響其他元素 */
+}
+.icon-text span {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
 .item-content {
   white-space: nowrap; /* 限制為單行 */
   text-overflow: ellipsis; /* 超出部分以...顯示 */
   overflow: hidden;
   width: 100%;
-  margin: 5px 0; /* 上下間距 */
 }
 
-.item-title {
-  font-size: 16px; /* 標題字體大小 */
-  font-weight: bold; /* 標題加粗 */
-  color: rgb(228, 228, 228);
+.small_icon2 {
+  width: 40px;
+  height: 40px;
+  display: block;
 }
-
 .item-content {
-  font-size: 20px; /* 內容字體大小 */
-  color: rgb(0, 0, 0); /* 內容顏色 */
-  font-weight: bold; /* 標題加粗 */
-  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* 水平置中 */
+  padding: 10px;
+}
+
+.item-content span {
+  font-size: 25px;
+  margin-right: 15px;
+  color: white; /* 文字顏色 */
+  text-shadow: -1px -1px 0 red, /* 左上 */ 1px -1px 0 red,
+    /* 右上 */ -1px 1px 0 red, /* 左下 */ 1px 1px 0 red; /* 右下 */
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.dialog-box {
+  width: 45%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translate(-50%, -50%); /* 将对齐点从左上角移到中心 */
+  position: absolute;
+  background-image: url("./images/lineage_deposit_dialog_bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* 拉伸圖片以完全填充容器 */
+  z-index: 1000;
+}
+
+.dialog-box h1 {
+  color: white;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+.dialog-box h4 {
+  color: white;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.icon-amount {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center; /* 垂直置中 */
+  width: 100%; /* 確保容器足夠寬 */
+  justify-content: center; /* 水平向左對齊 */
+}
+
+.icon-amount img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  display: block; /* 確保圖片是區塊級，避免影響其他元素 */
+}
+.icon-amount span {
+  font-size: 40px;
+  color: #7ce5e9;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
 }
