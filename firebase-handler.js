@@ -56,6 +56,15 @@ db.collection("new_info")
         listItem.className = "list-item";
         listItem.textContent = title;
         listContainer.appendChild(listItem);
+
+        listItem.addEventListener("click", () => {
+          const targetUrl = `./news_info.html?title=${encodeURIComponent(
+            title
+          )}&type=info`;
+
+          // 跳轉至目標 URL
+          window.location.href = targetUrl;
+        });
       }
 
       index++;
@@ -82,6 +91,15 @@ db.collection("system_info")
         listItem2.className = "list-item2";
         listItem2.textContent = title;
         listContainer2.appendChild(listItem2);
+
+        listItem2.addEventListener("click", () => {
+          const targetUrl = `./news_info.html?title=${encodeURIComponent(
+            title
+          )}&type=system`;
+
+          // 跳轉至目標 URL
+          window.location.href = targetUrl;
+        });
       }
       index++;
     });

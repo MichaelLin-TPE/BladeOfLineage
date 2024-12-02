@@ -14,8 +14,20 @@ firebase.initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = firebase.firestore();
 
+//獲取上一頁的資料
+const urlParams = new URLSearchParams(window.location.search);
+const titleFromPeriousPage = urlParams.get("title");
+const typeFromPeriousPage = urlParams.get("type");
+
 const newsIcon = document.getElementById("news_info");
 const systemIcon = document.getElementById("system_info");
+
+let table_name = "news_info";
+if (typeFromPeriousPage == "system") {
+  newsIcon.src = "./images/lineage_news_info_icon.png";
+  systemIcon.src = "./images/lineage_system_info_icon_active.png";
+  table_name = "system_info";
+}
 
 newsIcon.addEventListener("click", () => {
   newsIcon.src = "./images/lineage_news_info_icon_active.png";
@@ -29,7 +41,7 @@ systemIcon.addEventListener("click", () => {
   getNewsData("system_info");
 });
 
-getNewsData("news_info");
+getNewsData(table_name);
 
 function getNewsData(id) {
   const container = document.querySelector(".main_news_list");
@@ -117,6 +129,23 @@ function getNewsData(id) {
         });
         // 將項目容器添加到主容器
         container.appendChild(div);
+
+        //比對從上一頁來的資訊是否一樣
+        if (titleFromPeriousPage && typeFromPeriousPage) {
+          if (titleFromServer == titleFromPeriousPage) {
+            overlay.style.display = "block"; // 顯示遮罩
+            setTimeout(() => {
+              overlay.style.opacity = "1"; // 動畫漸顯
+            }, 10); // 延遲確保 display 已生效
+            showOverlayData(
+              titleFromServer,
+              contentFromServer,
+              dateFromServer,
+              imageFromServer
+            );
+            return;
+          }
+        }
       });
     })
     .catch((error) => {
