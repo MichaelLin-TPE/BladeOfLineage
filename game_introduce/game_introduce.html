@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>遊戲介紹</title>
+    <link rel="icon" href="../images/logo.webp" type="image/x-icon" />
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <link rel="stylesheet" href="./game_introduce.css" />
+  </head>
+  <body>
+    <div class="bg">
+      <div class="menu_list">
+        <img
+          id="position_introduce"
+          src="../images/lineage_position_introduce.png"
+          alt="position_introduce"
+        />
+
+        <img
+          id="equid_introduce"
+          src="../images/lineage_equid_introduce.png"
+          alt="equid_introduce"
+        />
+        <img
+          id="skill_introduce"
+          src="../images/lineage_skill_introduce.png"
+          alt="skill_introduce"
+        />
+      </div>
+
+      <div class="main_news_list"></div>
+    </div>
+    <div class="logo_view">
+      <a href="../index.html" onclick="navigateToIndex(event)"></a>
+    </div>
+    <script src="./game_introduce.js"></script>
+  </body>
+</html>

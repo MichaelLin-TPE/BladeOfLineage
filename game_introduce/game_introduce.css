@@ -9,7 +9,6 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: center;
   margin: 0;
   padding: 0;
   background-image: url("../images/lineage_news_info_bg.webp");
@@ -20,6 +19,34 @@ html {
   color: greenyellow;
   position: relative;
 }
+.menu_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 150px;
+  justify-content: center;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+#position_introduce {
+  cursor: pointer;
+  width: 200px;
+  height: 140px;
+}
+#equid_introduce {
+  cursor: pointer;
+  margin-top: 80px;
+  width: 200px;
+  height: 140px;
+}
+#skill_introduce {
+  cursor: pointer;
+  margin-top: 80px;
+  width: 200px;
+  height: 140px;
+}
+
 .logo_view {
   cursor: pointer;
   background-image: url("../images/lineage_title.png");
@@ -44,64 +71,30 @@ html {
   left: 0;
   text-indent: -9999px; /* 隱藏文字（如果有） */
 }
-.game_download_icon {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 190px;
-  height: 190px;
-  margin-left: 45px;
-  display: inline-block;
-  background-image: url("../images/lineage_game_download.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.main_info_view {
-  padding-left: 3%;
-  padding-right: 3%;
+.main_news_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 每行兩個項目 */
+  gap: 20px; /* 項目之間的間距 */
+  padding: 35px; /* 容器的內邊距 */
+  width: 100%; /* 讓寬度自適應螢幕 */
+  max-width: calc(100% - 40px); /* 可選：設置最大寬度，避免緊貼螢幕邊緣 */
   border-radius: 15px; /* 設置圓角為 15px */
   background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
-  width: 60%;
-  position: absolute;
-  height: 90%;
-  top: 50%; /* 元素頂部與視窗的 50% */
-  left: 50%; /* 元素左側與視窗的 50% */
-  transform: translate(
-    -50%,
-    -50%
-  ); /* 向左、向上移動自身的 50% 寬/高，實現居中 */
+  margin-top: 25px;
+  margin-left: 50px; /* 清除固定的 margin */
+  margin-right: 350px;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
 }
-tr img {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 4% auto;
-}
-td {
-  border: 1px solid rgb(0, 0, 0);
-  text-align: center;
-  padding: 5px;
-}
-#first_row {
-  background-color: #003a51;
-}
-#name,
-#content,
-#size,
-#download {
-  font-weight: bold;
-  color: white;
-  font-size: 18px;
+.main_news_list::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
 }
 
-#second_row,
-#third_row {
-  color: #d4d5d1;
-  background-color: #415969;
+.main_news_list::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+.main_news_list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滾動條懸停顏色 */
 }

@@ -28,11 +28,11 @@ html {
   left: 0;
 }
 #donate_icon {
-  width: 200px;
+  width: 250px;
   left: 0;
   position: absolute;
   bottom: 0;
-  margin-left: 30px;
+  margin-left: 3%;
 }
 .logo_view {
   cursor: pointer;
@@ -55,10 +55,10 @@ html {
   margin-top: 8%;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 170px;
+  width: 280px;
+  height: 250px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 4%;
 }
 
 .logo_view a {
@@ -78,8 +78,8 @@ html {
   gap: 20px 20px; /* 項目之間的間距 */
   width: 100%; /* 讓寬度自適應螢幕 */
   height: 80%;
-  margin-top: 5%;
-  margin-left: 300px; /* 清除固定的 margin */
+  padding: 25px;
+  margin-left: 450px; /* 清除固定的 margin */
   margin-right: 340px;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
@@ -96,7 +96,7 @@ html {
   background: #555; /* 滾動條懸停顏色 */
 }
 .item {
-  height: auto;
+  height: 130px;
   cursor: pointer;
   background-image: url("./images/lineage_donate_item.png");
   background-position: center;
@@ -120,13 +120,13 @@ html {
 }
 
 .icon-text img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   margin-right: 5px;
   display: block; /* 確保圖片是區塊級，避免影響其他元素 */
 }
 .icon-text span {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   font-weight: bold;
 }
@@ -141,6 +141,7 @@ html {
 .small_icon2 {
   width: 40px;
   height: 40px;
+  margin-right: 5px;
   display: block;
 }
 .item-content {
