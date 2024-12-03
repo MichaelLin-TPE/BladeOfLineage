@@ -28,7 +28,7 @@ html {
   left: 0;
 }
 #donate_icon {
-  width: 250px;
+  width: 200px;
   left: 0;
   position: absolute;
   bottom: 0;
@@ -45,6 +45,20 @@ html {
   position: absolute; /* 固定位置 */
   bottom: 20px; /* 從螢幕底部距離 */
   right: 20px; /* 從螢幕右側距離 */
+}
+
+.donate_gif {
+  background-image: url("./images/lineage_click_to_donate.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  margin-top: 8%;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 180px;
+  cursor: pointer;
+  margin-left: 30px;
 }
 
 .logo_view a {
@@ -65,7 +79,7 @@ html {
   width: 100%; /* 讓寬度自適應螢幕 */
   height: 80%;
   margin-top: 5%;
-  margin-left: 340px; /* 清除固定的 margin */
+  margin-left: 300px; /* 清除固定的 margin */
   margin-right: 340px;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
