@@ -1,0 +1,102 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background-color: black;
+}
+.bg {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/lineage_news_info_bg.webp");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: greenyellow;
+  position: relative;
+}
+.logo_view {
+  cursor: pointer;
+  background-image: url("../images/lineage_title.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 300px; /* 根據需要設置寬度 */
+  height: 120px; /* 根據需要設置高度 */
+  display: inline-block;
+  position: absolute; /* 使用絕對定位 */
+  bottom: 0; /* 固定在螢幕底部 */
+  right: 0; /* 固定在螢幕左側 */
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.logo_view a {
+  display: block; /* 讓 <a> 充滿父容器 */
+  width: 100%; /* 寬度填滿父容器 */
+  height: 100%; /* 高度填滿父容器 */
+  position: absolute; /* 絕對定位以覆蓋父容器 */
+  top: 0;
+  left: 0;
+  text-indent: -9999px; /* 隱藏文字（如果有） */
+}
+.game_download_icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 190px;
+  height: 190px;
+  margin-left: 45px;
+  display: inline-block;
+  background-image: url("../images/lineage_game_download.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.main_info_view {
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 15px; /* 設置圓角為 15px */
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
+  width: 60%;
+  position: absolute;
+  height: 90%;
+  top: 50%; /* 元素頂部與視窗的 50% */
+  left: 50%; /* 元素左側與視窗的 50% */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 向左、向上移動自身的 50% 寬/高，實現居中 */
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 4% auto;
+}
+td {
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+  padding: 10px;
+}
+#first_row {
+  background-color: #003a51;
+}
+#name,
+#content,
+#size,
+#download {
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+}
+
+#second_row,
+#third_row {
+  color: #d4d5d1;
+  background-color: #415969;
+}
