@@ -32,19 +32,19 @@ html {
 #position_introduce {
   cursor: pointer;
   width: 200px;
-  height: 140px;
+  height: 120px;
 }
 #equid_introduce {
   cursor: pointer;
   margin-top: 80px;
   width: 200px;
-  height: 140px;
+  height: 120px;
 }
 #skill_introduce {
   cursor: pointer;
   margin-top: 80px;
   width: 200px;
-  height: 140px;
+  height: 120px;
 }
 
 .logo_view {
@@ -72,9 +72,10 @@ html {
   text-indent: -9999px; /* 隱藏文字（如果有） */
 }
 .main_news_list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: repeat(2, 1fr); /* 每行兩個項目 */
-  gap: 20px; /* 項目之間的間距 */
+  gap: 10px; /* 項目之間的間距 */
   padding: 35px; /* 容器的內邊距 */
   width: 100%; /* 讓寬度自適應螢幕 */
   max-width: calc(100% - 40px); /* 可選：設置最大寬度，避免緊貼螢幕邊緣 */
@@ -97,4 +98,104 @@ html {
 
 .main_news_list::-webkit-scrollbar-thumb:hover {
   background: #555; /* 滾動條懸停顏色 */
+}
+#where_to_get {
+  margin-right: 60px;
+}
+#others_property {
+  margin-right: 130px;
+}
+#basic_property {
+  margin-right: 40px;
+}
+.item_row {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.item_row span {
+  color: white;
+}
+.where_to_get_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #d9d9d999; /* 半透明黑色背景，透明度設為 0.5 */
+  border-radius: 10px;
+  width: 250px;
+  height: 130px;
+  padding-inline: 15px;
+  font-size: 15px;
+}
+.left_align {
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+.item_name {
+  color: white;
+  font-size: 14px;
+}
+.position {
+  color: white;
+  font-size: 14px;
+}
+.main_view {
+  padding-inline: 30px;
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  margin-right: 50px;
+  background: rgba(217, 217, 217, 0.6); /* 半透明背景 */
+  display: flex; /* 啟用 Flexbox */
+  justify-content: space-between; /* 子元件水平分佈 */
+  align-items: center;
+}
+.position {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.item_name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item_image {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.item_image img {
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+}
+.main_view div {
+  width: 100%;
+  color: white;
+  font-size: 15px;
+}
+.basic_property_area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* 確保父容器的文字方向 */
+  color: white;
+}
+
+.others_property_area div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* 確保父容器的文字方向 */
 }
