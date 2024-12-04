@@ -129,6 +129,7 @@ html {
   height: 130px;
   padding-inline: 15px;
   font-size: 15px;
+  font-weight: bold;
 }
 .left_align {
   width: 100%;
@@ -155,6 +156,7 @@ html {
   align-items: center;
 }
 .position {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,6 +164,7 @@ html {
   text-align: center;
 }
 .item_name {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,6 +189,7 @@ html {
 .basic_property_area {
   height: 100%;
   display: flex;
+  font-weight: bold;
   flex-direction: column;
   justify-content: center;
   text-align: left; /* 確保父容器的文字方向 */
@@ -195,6 +199,7 @@ html {
 .others_property_area div {
   height: 100%;
   display: flex;
+  font-weight: bold;
   flex-direction: column;
   justify-content: center;
   text-align: left; /* 確保父容器的文字方向 */
