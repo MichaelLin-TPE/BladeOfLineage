@@ -131,14 +131,37 @@ html {
   font-size: 15px;
   font-weight: bold;
 }
+.description {
+  width: 100%;
+  display: block;
+  text-align: left;
+}
 .left_align {
   width: 100%;
   display: block;
   text-align: left;
 }
 .item_name {
-  color: white;
-  font-size: 14px;
+  position: relative; /* 父容器相對定位 */
+  width: 100px; /* 父容器寬度，根據需求調整 */
+  height: 100px; /* 父容器高度，根據需求調整 */
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: center; /* 水平居中圖片 */
+  align-items: center; /* 垂直居中圖片 */
+}
+.item_name img {
+  width: 70px; /* 圖片寬度 */
+  height: 70px; /* 圖片高度 */
+}
+.item_name span {
+  position: absolute; /* 絕對定位 */
+  color: #631f30; /* 文字顏色 */
+  font-size: 14px; /* 字體大小 */
+  text-align: center;
+  top: 50%; /* 垂直居中 */
+  left: 50%; /* 水平居中 */
+  transform: translate(-50%, -50%); /* 修正偏移 */
+  z-index: 1; /* 確保文字顯示在圖片上方 */
 }
 .position {
   color: white;

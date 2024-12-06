@@ -96,7 +96,7 @@ function getNewsData() {
         const content = document.createElement("div");
         content.className = "item-content";
         const contentSpan = document.createElement("span");
-        contentSpan.textContent = "查看贈品詳情";
+        contentSpan.textContent = titleFromServer;
 
         const small_icon2 = document.createElement("img");
         small_icon2.className = "small_icon2";
