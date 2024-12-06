@@ -19,51 +19,94 @@ html {
   color: greenyellow;
   position: relative;
 }
-.action_bar_bg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 850px;
-  height: 100px;
-  background-image: url("./images/action_bar.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.action-bar-text {
-  z-index: 20; /* 保證文字位於圖片之上 */
-  display: flex;
-  gap: 20px; /* 設置文字之間的間距 */
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文字陰影 */
-}
-.action-bar-text a {
-  text-decoration: none; /* 去掉底線 */
-  color: inherit; /* 繼承文字顏色 */
-}
-.action-bar-text span {
-  cursor: pointer;
-  padding: 0 10px;
-  transition: color 0.3s ease;
-}
-.action-bar-text span:hover {
-  color: yellow; /* 鼠标悬停时变黄 */
-}
 
 .first_icon_list {
-  display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
+  position: absolute;
+  bottom: 0; /* 父容器相對定位 */
+  display: flex; /* 使用 Flexbox 布局 */
 }
-.second_icon_list {
-  margin-top: 10px;
+#deposit_guide_icon {
+  position: absolute; /* 設置所有 ICON 為絕對定位 */
+  top: 0; /* 上方對齊 */
+  left: 44%; /* 左邊對齊 */
+  z-index: 4;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 110px;
+  cursor: pointer;
+}
+#user_guide_icon {
+  position: absolute; /* 設置所有 ICON 為絕對定位 */
+  top: 0; /* 上方對齊 */
+  left: 44%; /* 左邊對齊 */
+  z-index: 4;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-left: 140px;
+  width: 170px;
+  height: 110px;
+  cursor: pointer;
+}
+
+#equip_guide_icon {
+  position: absolute; /* 設置所有 ICON 為絕對定位 */
+  top: 0; /* 上方對齊 */
+  left: 44%; /* 左邊對齊 */
+  z-index: 3;
+  margin-left: 270px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 110px;
+  cursor: pointer;
+}
+
+#skill_guide_icon {
+  position: absolute; /* 設置所有 ICON 為絕對定位 */
+  top: 0; /* 上方對齊 */
+  left: 44%; /* 左邊對齊 */
+  z-index: 4;
+  margin-left: 410px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 110px;
+  cursor: pointer;
+}
+
+.black-overlay {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: 550px; /* 與 .action_bar_bg 寬度一致 */
+  border-radius: 15px; /* 設置圓角為 15px */
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
+  margin-top: 75px;
+  margin-left: 370px;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
 }
+
+.black-overlay::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
+}
+
+.black-overlay::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+.black-overlay::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滾動條懸停顏色 */
+}
+
 .contact_us_area {
   padding: 10px;
   display: flex; /* 改為 inline-block 或 block */
@@ -94,65 +137,15 @@ html {
 }
 
 #title {
-  width: 500px; /* Logo 寬度，可調整 */
-  height: 230px;
+  width: 550px; /* Logo 寬度，可調整 */
+  height: 280px;
   margin-top: 10px; /* 與 Action Bar 的距離 */
   display: inline-block;
   position: absolute; /* 使用絕對定位 */
   bottom: 0; /* 固定在螢幕底部 */
   left: 0; /* 固定在螢幕左側 */
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-left: 50px;
-}
-#deposit_guide_icon {
-  width: 220px;
-  height: 110px;
-  margin-left: 350px;
-  cursor: pointer;
-}
-#user_guide_icon {
-  width: 220px;
-  height: 110px;
-  margin-left: 25px;
-  cursor: pointer;
-}
-
-#skill_guide_icon {
-  width: 220px;
-  height: 110px;
-  margin-left: 400px;
-  cursor: pointer;
-}
-#equip_guide_icon {
-  width: 220px;
-  height: 110px;
-  margin-left: 25px;
-  cursor: pointer;
-}
-.black-overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 550px; /* 與 .action_bar_bg 寬度一致 */
-  border-radius: 15px; /* 設置圓角為 15px */
-  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
-  margin-top: 25px;
-  margin-left: 370px;
-  overflow-y: auto; /* 開啟垂直滾動 */
-  overflow-x: hidden; /* 禁止水平滾動 */
-}
-
-.black-overlay::-webkit-scrollbar {
-  width: 8px; /* 滾動條寬度 */
-}
-
-.black-overlay::-webkit-scrollbar-thumb {
-  background: #888; /* 滾動條顏色 */
-  border-radius: 4px; /* 滾動條圓角 */
-}
-
-.black-overlay::-webkit-scrollbar-thumb:hover {
-  background: #555; /* 滾動條懸停顏色 */
 }
 
 .new_info,
