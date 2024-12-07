@@ -5,10 +5,9 @@ html {
   background-color: black;
 }
 .bg {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin: 0;
   padding: 0;
   background-image: url("./images/lineage_background_image.jpg");
@@ -20,76 +19,82 @@ html {
   position: relative;
 }
 
-.first_icon_list {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 110px;
-  position: absolute;
-  bottom: 0; /* 父容器相對定位 */
-  display: flex; /* 使用 Flexbox 布局 */
-}
+
 #deposit_guide_icon {
-  position: absolute; /* 設置所有 ICON 為絕對定位 */
-  top: 0; /* 上方對齊 */
-  left: 44%; /* 左邊對齊 */
-  z-index: 4;
-  z-index: 1;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 170px;
-  height: 110px;
+  height: 100%;
   cursor: pointer;
 }
 #user_guide_icon {
-  position: absolute; /* 設置所有 ICON 為絕對定位 */
-  top: 0; /* 上方對齊 */
-  left: 44%; /* 左邊對齊 */
-  z-index: 4;
-  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 10%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin-left: 140px;
   width: 170px;
-  height: 110px;
+  height: 100%;
   cursor: pointer;
 }
 
-#equip_guide_icon {
-  position: absolute; /* 設置所有 ICON 為絕對定位 */
-  top: 0; /* 上方對齊 */
-  left: 44%; /* 左邊對齊 */
-  z-index: 3;
-  margin-left: 270px;
+#lineage_dowanload {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 20%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 170px;
-  height: 110px;
+  height: 100%;
   cursor: pointer;
 }
 
-#skill_guide_icon {
-  position: absolute; /* 設置所有 ICON 為絕對定位 */
-  top: 0; /* 上方對齊 */
-  left: 44%; /* 左邊對齊 */
-  z-index: 4;
-  margin-left: 410px;
+#contact_us {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 30%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 170px;
-  height: 110px;
+  height: 100%;
   cursor: pointer;
+}
+#community {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 40%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.first_icon_list {
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  margin-left: 46%;
+  height: 20%;
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-direction: row;
 }
 
 .black-overlay {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 550px; /* 與 .action_bar_bg 寬度一致 */
+  width: auto;
+  margin-left: 46%;
   border-radius: 15px; /* 設置圓角為 15px */
   background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
-  margin-top: 75px;
-  margin-left: 370px;
+  margin-top: 7%;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
 }
@@ -105,35 +110,6 @@ html {
 
 .black-overlay::-webkit-scrollbar-thumb:hover {
   background: #555; /* 滾動條懸停顏色 */
-}
-
-.contact_us_area {
-  padding: 10px;
-  display: flex; /* 改為 inline-block 或 block */
-  flex-direction: column;
-  position: fixed;
-  cursor: move;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  margin-right: 50px;
-  border-radius: 15px; /* 設置圓角為 15px */
-  background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
-  width: 120px; /* 固定寬度 */
-  height: auto; /* 自適應高度，或固定高度 */
-  bottom: 0;
-  margin-bottom: 25px;
-}
-#contact_us {
-  margin-top: 15px;
-  width: 100px;
-  height: 120px;
-}
-#community {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100px;
-  height: 120px;
 }
 
 #title {
