@@ -11,7 +11,7 @@ html {
   align-items: center;
   margin: 0;
   padding: 0;
-  background-image: url("./images/lineage_news_info_bg.webp");
+  background-image: url("../images/lineage_news_info_bg.webp");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,7 +36,7 @@ html {
 }
 .logo_view {
   cursor: pointer;
-  background-image: url("./images/lineage_title.png");
+  background-image: url("../images/lineage_title.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 300px; /* 根據需要設置寬度 */
@@ -48,7 +48,7 @@ html {
 }
 
 .donate_gif {
-  background-image: url("./images/lineage_click_to_donate.gif");
+  background-image: url("../images/lineage_click_to_donate.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: absolute;
@@ -98,7 +98,7 @@ html {
 .item {
   height: 130px;
   cursor: pointer;
-  background-image: url("./images/lineage_donate_item.png");
+  background-image: url("../images/lineage_donate_item.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%; /* 拉伸圖片以完全填充容器 */
@@ -180,7 +180,7 @@ html {
   flex-direction: column;
   transform: translate(-50%, -50%); /* 将对齐点从左上角移到中心 */
   position: absolute;
-  background-image: url("./images/lineage_deposit_dialog_bg.png");
+  background-image: url("../images/lineage_deposit_dialog_bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%; /* 拉伸圖片以完全填充容器 */

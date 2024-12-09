@@ -58,7 +58,7 @@ db.collection("new_info")
         listContainer.appendChild(listItem);
 
         listItem.addEventListener("click", () => {
-          const targetUrl = `./news_info.html?title=${encodeURIComponent(
+          const targetUrl = `../news_page/news_info.html?title=${encodeURIComponent(
             title
           )}&type=info`;
 
@@ -93,7 +93,7 @@ db.collection("system_info")
         listContainer2.appendChild(listItem2);
 
         listItem2.addEventListener("click", () => {
-          const targetUrl = `./news_info.html?title=${encodeURIComponent(
+          const targetUrl = `../news_page/news_info.html?title=${encodeURIComponent(
             title
           )}&type=system`;
 

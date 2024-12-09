@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>幻刃天堂後台登入頁面</title>
+    <link rel="icon" href="../image/logo.webp" type="image/x-icon" />
+    <link rel="shortcut icon" href="../image/logo.webp" type="image/x-icon" />
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <meta name="description" content="此為幻任天堂後台" />
+    <meta name="keywords" content="幻刃天堂後台" />
+    <link rel="stylesheet" href="./home.css" />
+  </head>
+  <body>
+    <div class="bg">
+      <h1>幻任天堂後台</h1>
+      <div class="account_area">
+        <span>帳號 :</span>
+        <input
+          type="text"
+          id="input_account"
+          placeholder="請輸入帳號"
+          required
+        />
+      </div>
+      <div class="password_area">
+        <span>密碼 :</span>
+        <input
+          type="password"
+          id="input_password"
+          placeholder="請輸入密碼"
+          required
+        />
+      </div>
+      <button id="login_button">登入</button>
+    </div>
+
+    <script src="./home_handler.js"></script>
+  </body>
+</html>

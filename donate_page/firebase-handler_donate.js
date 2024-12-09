@@ -87,7 +87,7 @@ function getNewsData() {
 
         const icon = document.createElement("img");
         icon.alt = "small_icon";
-        icon.src = "./images/lineage_donate_small_icon.png";
+        icon.src = "../images/lineage_donate_small_icon.png";
 
         const textSpan = document.createElement("span");
         textSpan.textContent = amountFromServer; // 設置文字內容
@@ -100,7 +100,7 @@ function getNewsData() {
 
         const small_icon2 = document.createElement("img");
         small_icon2.className = "small_icon2";
-        small_icon2.src = "./images/lineage_donate_small_icon2.png";
+        small_icon2.src = "../images/lineage_donate_small_icon2.png";
         content.appendChild(small_icon2);
         content.append(contentSpan);
         // 把 img 和 span 加入父容器

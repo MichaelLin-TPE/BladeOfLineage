@@ -24,20 +24,20 @@ const systemIcon = document.getElementById("system_info");
 
 let table_name = "news_info";
 if (typeFromPeriousPage == "system") {
-  newsIcon.src = "./images/lineage_news_info_icon.png";
-  systemIcon.src = "./images/lineage_system_info_icon_active.png";
+  newsIcon.src = "../images/lineage_news_info_icon.png";
+  systemIcon.src = "../images/lineage_system_info_icon_active.png";
   table_name = "system_info";
 }
 
 newsIcon.addEventListener("click", () => {
-  newsIcon.src = "./images/lineage_news_info_icon_active.png";
-  systemIcon.src = "./images/lineage_system_info_icon.png";
+  newsIcon.src = "../images/lineage_news_info_icon_active.png";
+  systemIcon.src = "../images/lineage_system_info_icon.png";
   getNewsData("news_info");
 });
 
 systemIcon.addEventListener("click", () => {
-  systemIcon.src = "./images/lineage_system_info_icon_active.png";
-  newsIcon.src = "./images/lineage_news_info_icon.png";
+  systemIcon.src = "../images/lineage_system_info_icon_active.png";
+  newsIcon.src = "../images/lineage_news_info_icon.png";
   getNewsData("system_info");
 });
 

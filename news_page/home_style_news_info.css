@@ -11,7 +11,7 @@ html {
   align-items: center;
   margin: 0;
   padding: 0;
-  background-image: url("./images/lineage_news_info_bg.webp");
+  background-image: url("../images/lineage_news_info_bg.webp");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +41,7 @@ html {
 }
 .logo_view {
   cursor: pointer;
-  background-image: url("./images/lineage_title.png");
+  background-image: url("../images/lineage_title.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 300px; /* 根據需要設置寬度 */

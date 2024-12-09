@@ -14,45 +14,101 @@ firebase.initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = firebase.firestore();
 
-db.collection("item_introduce_list")
-  .get()
-  .then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
+getItemIntroduceList();
 
-      console.log(doc.id, " => ", doc.data());
-      const data = doc.data();
-      const attack = data.attack;
-      const closeHit = data.closeHit;
-      const description = data.description;
-      const extraAttack = data.extraAttack;
-      const grip = data.grip;
-      const imageUrl = data.imageUrl;
-      const itemName = data.itemName;
-      const material = data.material;
-      const position = data.position;
-      const source = data.source;
-      const stability = data.stability;
-      const weight = data.weight;
-      addItemRow(
-        position,
-        itemName,
-        imageUrl,
-        attack,
-        grip,
-        stability,
-        material,
-        weight,
-        closeHit,
-        extraAttack,
-        source,
-        description
-      );
+const ivItemIntroduce = document.getElementById("equid_introduce");
+ivItemIntroduce.addEventListener("click", () => {
+  getItemIntroduceList();
+});
+
+const ivSkillIntroduce = document.getElementById("skill_introduce");
+ivSkillIntroduce.addEventListener("click", () => {
+  getSkillIntroduceList();
+});
+
+function getSkillIntroduceList() {
+  db.collection("skill_introduce_list")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+
+        console.log(doc.id, " => ", doc.data());
+        const data = doc.data();
+        const attack = data.attack;
+        const closeHit = data.closeHit;
+        const description = data.description;
+        const extraAttack = data.extraAttack;
+        const grip = data.grip;
+        const imageUrl = data.imageUrl;
+        const itemName = data.itemName;
+        const material = data.material;
+        const position = data.position;
+        const source = data.source;
+        const stability = data.stability;
+        const weight = data.weight;
+        addItemRow(
+          position,
+          itemName,
+          imageUrl,
+          attack,
+          grip,
+          stability,
+          material,
+          weight,
+          closeHit,
+          extraAttack,
+          source,
+          description
+        );
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
     });
-  })
-  .catch((error) => {
-    console.log("Error getting documents: ", error);
-  });
+}
+
+function getItemIntroduceList() {
+  db.collection("item_introduce_list")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+
+        console.log(doc.id, " => ", doc.data());
+        const data = doc.data();
+        const attack = data.attack;
+        const closeHit = data.closeHit;
+        const description = data.description;
+        const extraAttack = data.extraAttack;
+        const grip = data.grip;
+        const imageUrl = data.imageUrl;
+        const itemName = data.itemName;
+        const material = data.material;
+        const position = data.position;
+        const source = data.source;
+        const stability = data.stability;
+        const weight = data.weight;
+        addItemRow(
+          position,
+          itemName,
+          imageUrl,
+          attack,
+          grip,
+          stability,
+          material,
+          weight,
+          closeHit,
+          extraAttack,
+          source,
+          description
+        );
+      });
+    })
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+}
 
 function adjustOverlayHeight() {
   const windowHeight = window.innerHeight - 0;
@@ -67,7 +123,7 @@ window.addEventListener("resize", adjustOverlayHeight);
 
 function navigateToIndex(event) {
   event.preventDefault(); // 阻止默認的超連結行為
-  location.replace("../index.html"); // 替換當前頁面的歷史記錄
+  location.replace("../home_page/index.html"); // 替換當前頁面的歷史記錄
 }
 
 function addItemRow(
@@ -86,7 +142,9 @@ function addItemRow(
 ) {
   // 選擇 main_news_list
   const mainNewsList = document.querySelector(".main_news_list");
-
+  while (mainNewsList.firstChild) {
+    mainNewsList.removeChild(mainNewsList.firstChild);
+  }
   // 建立 item_row 的外層 div
   const itemRow = document.createElement("div");
   itemRow.classList.add("item_row");

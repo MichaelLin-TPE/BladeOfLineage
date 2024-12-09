@@ -10,7 +10,7 @@ html {
   align-items: flex-start;
   margin: 0;
   padding: 0;
-  background-image: url("./images/lineage_background_image.jpg");
+  background-image: url("../images/lineage_background_image.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,11 +19,13 @@ html {
   position: relative;
 }
 
-
 #deposit_guide_icon {
+  position: absolute;
+  left: 0;
+  top: 0;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 170px;
+  width: 10%;
   height: 100%;
   cursor: pointer;
 }
@@ -31,10 +33,10 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  margin-left: 10%;
+  margin-left: 8%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 170px;
+  width: 10%;
   height: 100%;
   cursor: pointer;
 }
@@ -43,10 +45,10 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  margin-left: 20%;
+  margin-left: 16%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 170px;
+  width: 10%;
   height: 100%;
   cursor: pointer;
 }
@@ -55,10 +57,10 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  margin-left: 30%;
+  margin-left: 24%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 170px;
+  width: 10%;
   height: 100%;
   cursor: pointer;
 }
@@ -66,10 +68,10 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  margin-left: 40%;
+  margin-left: 32%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 170px;
+  width: 10%;
   height: 100%;
   cursor: pointer;
 }
@@ -90,13 +92,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: auto;
+  width: 38%;
   margin-left: 46%;
   border-radius: 15px; /* 設置圓角為 15px */
   background: rgba(0, 0, 0, 0.5); /* 半透明黑色背景，透明度設為 0.5 */
   margin-top: 7%;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
+  height: 100%;
+  margin-bottom: 12%;
+  padding: 1.5%;
 }
 
 .black-overlay::-webkit-scrollbar {
@@ -112,37 +117,26 @@ html {
   background: #555; /* 滾動條懸停顏色 */
 }
 
-#title {
-  width: 550px; /* Logo 寬度，可調整 */
-  height: 280px;
-  margin-top: 10px; /* 與 Action Bar 的距離 */
-  display: inline-block;
-  position: absolute; /* 使用絕對定位 */
-  bottom: 0; /* 固定在螢幕底部 */
-  left: 0; /* 固定在螢幕左側 */
-  margin-bottom: 50px;
-  margin-left: 50px;
+.new_info {
+  width: 100%;
 }
-
-.new_info,
 .system_info {
-  margin-top: 20px;
-  margin-left: 20px;
+  width: 100%;
+  margin-top: 5%;
 }
 
 .list-item {
+  width: 100%;
   margin-top: 5px;
   padding-left: 0px;
-  width: 500px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ccc;
 }
 
 .list-item2 {
-  width: 500px;
+  width: 100%;
   margin-top: 5px;
-  padding-left: 0px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ccc;
@@ -153,12 +147,14 @@ html {
   color: yellow; /* 變成黃色 */
   cursor: pointer;
 }
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  width: auto;
-  height: 50px;
+#title {
+  width: 28%; /* Logo 寬度，可調整 */
+  height: 22%;
+  margin-top: 10px; /* 與 Action Bar 的距離 */
+  display: inline-block;
+  position: absolute; /* 使用絕對定位 */
+  bottom: 0; /* 固定在螢幕底部 */
+  left: 0; /* 固定在螢幕左側 */
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
