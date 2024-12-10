@@ -27,7 +27,7 @@ function checkToken() {
 
         if (tokenFromServer != token) {
           alert("無任何帳號資訊,退出頁面!");
-          window.location.href = "../bo_home/index.html"; // 跳轉到其他頁面
+          window.location.href = "../bo_home/bo_login.html"; // 跳轉到其他頁面
         }
       });
     })
