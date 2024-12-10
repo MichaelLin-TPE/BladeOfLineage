@@ -3,9 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>系統訊息 管理頁面</title>
+    <link rel="stylesheet" href="./news_page_style.css" />
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   </head>
   <body>
-    <h1 style="color: white">系統消息管理頁面</h1>
+    <div class="bg">
+      <h1>新增系統訊息</h1>
+      <div class="input_title">
+        <h2>標題 :</h2>
+        <input id="title" type="text" placeholder="請輸入標題" required />
+      </div>
+      <div class="input_content">
+        <h2>內容 :</h2>
+        <textarea id="content" placeholder="請輸入內容" required></textarea>
+      </div>
+      <div class="upload_image">
+        <h2>上傳圖片 :</h2>
+        <input id="file_input" type="file" accept="image/" * />
+      </div>
+      <img id="previewImage" class="preview" />
+      <div class="submit">
+        <button id="btn_submit" type="button">上傳</button>
+      </div>
+      <h1>系統資料管理</h1>
+      <div class="management_data"></div>
+    </div>
+    <div class="dialog-overlay hidden">
+      <div class="dialog_box">
+        <h2 id="dialog_title">這是標題</h2>
+        <div class="button_row">
+          <button id="btn_cancel" type="button">取消</button>
+          <button id="btn_confirm" type="button">刪除</button>
+        </div>
+      </div>
+    </div>
+    <script src="./system_page_js.js"></script>
   </body>
 </html>
