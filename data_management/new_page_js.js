@@ -168,7 +168,7 @@ const btnConfirm = document.getElementById("btn_confirm");
 function openDialog(docId, title) {
   dialogCover.classList.remove("hidden");
 
-  dialog_title.textContent = title;
+  dialog_title.textContent = "確認刪除 " + title + "?";
 
   btnCanel.addEventListener("click", () => {
     dialogCover.classList.add("hidden");
