@@ -1,0 +1,160 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto; /* 開啟垂直滾動 */
+  overflow-x: hidden; /* 禁止水平滾動 */
+  padding-inline: 3%;
+  padding-top: 2%;
+}
+
+.bg::-webkit-scrollbar {
+  width: 8px; /* 滾動條寬度 */
+}
+
+.bg::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+.bg h1 {
+  color: white;
+}
+.input_title h2,
+.input_amount,
+.input_content {
+  color: white;
+}
+.input_title input {
+  margin-left: 4%;
+  height: 40%;
+  width: 57%;
+  font-size: 16px;
+}
+.input_amount input {
+  margin-left: 1%;
+  height: 40%;
+  width: 57%;
+  font-size: 16px;
+}
+.input_title,
+.input_amount,
+.input_content,
+.submit {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.management_data {
+  width: 66%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-bottom: 2%;
+}
+#titleFromServer {
+  color: white;
+  font-size: 16px;
+  width: 100%;
+}
+#date {
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  text-align: end;
+  margin-right: 1%;
+}
+#btn_delete {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+}
+.row {
+  padding: 1%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid white; /* 使用 border-bottom 模擬下劃線 */
+  padding-bottom: 1px; /* 可選，調整與文字的距離 */
+}
+
+.input_content textarea {
+  width: 57%;
+  margin-left: 4%;
+  height: 200px;
+  font-size: 16px;
+}
+.submit button {
+  margin-top: 2%;
+  height: auto;
+  width: 66%;
+  font-size: 20px;
+  color: white;
+  background-color: blue;
+}
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialog_box {
+  width: 20%;
+  height: auto;
+  border-radius: 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+.dialog_box h2 {
+  color: black;
+  width: 100%;
+  word-wrap: break-word;
+}
+.button_row {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.button_row button {
+  width: 100%;
+  height: 30px;
+  margin-inline: 1%;
+  background-color: rgb(117, 117, 232);
+  color: white;
+  border-radius: 10px;
+
+  border: none; /* 取消按钮的边框 */
+}
