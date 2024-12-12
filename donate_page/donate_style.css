@@ -5,20 +5,28 @@ html {
   background-color: black;
 }
 .bg {
-  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
-  background-image: url("../images/lineage_news_info_bg.webp");
+  width: 100%;
   height: 100%;
+  background-image: url("../images/lineage_news_info_bg.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: greenyellow;
-  position: relative;
 }
+
+.left_view {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: baseline;
+}
+
 .donate_icon_area {
   display: flex;
   flex-direction: column;
@@ -28,7 +36,7 @@ html {
   left: 0;
 }
 #donate_icon {
-  width: 250px;
+  width: 15%;
   left: 0;
   position: absolute;
   bottom: 0;
@@ -39,8 +47,8 @@ html {
   background-image: url("../images/lineage_title.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 300px; /* 根據需要設置寬度 */
-  height: 120px; /* 根據需要設置高度 */
+  width: 20%; /* 根據需要設置寬度 */
+  height: 15%; /* 根據需要設置高度 */
   display: inline-block;
   position: absolute; /* 固定位置 */
   bottom: 20px; /* 從螢幕底部距離 */
@@ -55,8 +63,8 @@ html {
   margin-top: 8%;
   top: 0;
   left: 0;
-  width: 280px;
-  height: 250px;
+  width: 15%;
+  height: 25%;
   cursor: pointer;
   margin-left: 4%;
 }
@@ -73,16 +81,17 @@ html {
 
 .main_news_list {
   display: grid;
-  position: relative;
-  grid-template-columns: repeat(3, 1fr); /* 每行兩個項目 */
+  grid-template-columns: repeat(2, 1fr); /* 每行兩個項目 */
+  grid-template-rows: repeat(auto-fill, 150px);
   gap: 20px 20px; /* 項目之間的間距 */
   width: 100%; /* 讓寬度自適應螢幕 */
   height: 80%;
-  padding: 25px;
-  margin-left: 450px; /* 清除固定的 margin */
-  margin-right: 340px;
+  padding: 1%;
+  margin-left: 22%; /* 清除固定的 margin */
+  margin-right: 22%;
   overflow-y: auto; /* 開啟垂直滾動 */
   overflow-x: hidden; /* 禁止水平滾動 */
+  grid-auto-rows: auto; /* 讓每一行的高度根據內容自動調整 */
 }
 .main_news_list::-webkit-scrollbar {
   width: 5px; /* 滾動條寬度 */
@@ -96,20 +105,17 @@ html {
   background: #555; /* 滾動條懸停顏色 */
 }
 .item {
-  height: 130px;
+  height: 150px;
   cursor: pointer;
   background-image: url("../images/lineage_donate_item.png");
-  background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%; /* 拉伸圖片以完全填充容器 */
-  color: white; /* 白色文字 */
   border-radius: 8px; /* 圓角 */
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif; /* 字體 */
   display: flex; /* 使用 Flexbox 排列 */
   flex-direction: column; /* 垂直排列 */
-  text-align: left; /* 文字居中 */
 }
 .icon-text {
   margin-top: 20px;
@@ -134,7 +140,6 @@ html {
 .item-content {
   white-space: nowrap; /* 限制為單行 */
   text-overflow: ellipsis; /* 超出部分以...顯示 */
-  overflow: hidden;
   width: 100%;
 }
 
@@ -152,7 +157,7 @@ html {
 }
 
 .item-content span {
-  font-size: 25px;
+  font-size: 20px;
   margin-right: 15px;
   color: white; /* 文字顏色 */
   text-shadow: -1px -1px 0 red, /* 左上 */ 1px -1px 0 red,

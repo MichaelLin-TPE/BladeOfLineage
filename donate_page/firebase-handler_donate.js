@@ -125,7 +125,8 @@ function openDialog(
 ) {
   amount_title.textContent = amountFromServer;
   deposit_title.textContent = titleFromServer;
-  deposit_content.textContent = depositContentFromServer;
+  deposit_content.innerHTML = depositContentFromServer;
+
   dialog.classList.remove("hidden");
 }
 

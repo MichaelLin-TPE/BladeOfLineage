@@ -144,6 +144,8 @@ html {
   height: 230px; /* 圖片高度填充容器 */
   object-fit: cover; /* 確保圖片按比例填充 */
   border-radius: 8px; /* 保持圖片邊角圓滑 */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .overlay {
   position: fixed;

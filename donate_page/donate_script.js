@@ -2,19 +2,40 @@ function navigateToIndex(event) {
   event.preventDefault(); // 阻止默認的超連結行為
   location.replace("../index.html"); // 替換當前頁面的歷史記錄
 }
-window.addEventListener("resize", updateItemWidth);
 
-function updateItemWidth() {
-  const container = document.querySelector(".main_news_list");
-  const items = document.querySelectorAll(".item");
-  const containerWidth = container.offsetWidth;
+// function updateItemWidth() {
+//   const container = document.querySelector(".main_news_list");
+//   const items = document.querySelectorAll(".item");
+//   const containerWidth = container.offsetWidth;
 
-  // 假設每行需要顯示 3 個項目
-  const itemWidth = (containerWidth - 40) / 3; // 40 為 gap 寬度
-  items.forEach((item) => {
-    item.style.width = `${itemWidth}px`;
-  });
-}
+//   // 動態計算可以顯示的列數
+//   const calculateColumns = () => {
+//     if (containerWidth >= 1200) return 3;
+//     if (containerWidth >= 768) return 2;
+//     return 1; // 小螢幕上每行一個
+//   };
 
-// 初次計算
-updateItemWidth();
+//   const columns = calculateColumns();
+//   const gap = 20; // 假設間距為 20px
+//   const itemWidth = (containerWidth - (columns - 1) * gap) / columns;
+
+//   items.forEach((item) => {
+//     // 設定寬度和最大寬度
+//     item.style.width = `${itemWidth}px`;
+//     item.style.maxWidth = `${itemWidth}px`;
+
+//     // 確保圖片不會超出容器
+//     const img = item.querySelector("img");
+//     if (img) {
+//       img.style.maxWidth = "100%";
+//       img.style.height = "auto";
+//       img.style.objectFit = "cover";
+//     }
+//   });
+// }
+
+// // 初次計算
+// updateItemWidth();
+
+// // 確保在頁面加載後重新計算
+// window.addEventListener("load", updateItemWidth);

@@ -28,8 +28,27 @@ btnSubmit.addEventListener("click", () => {
     return;
   }
   console.log("title , content :", title + " , " + content);
-  addNews(title, content, amount);
+  addNews(title, getContentForHtml(), amount);
 });
+
+function getContentForHtml() {
+  const content = document.getElementById("content").value;
+  const htmlString = content
+    .split("\n")
+    .map((line) => {
+      if (line === "") {
+        return '<p style="color: white;">&nbsp;</p>';
+      } else {
+        // 將所有連續空白替換為 HTML 空白實體
+        const formattedLine = line.replace(/ /g, "&nbsp;");
+        return `<p style="color: white;">${formattedLine}</p>`;
+      }
+    })
+    .join("");
+  console.log("html : ", htmlString);
+  return htmlString;
+}
+
 async function addNews(title, content, amount) {
   db.collection("donate_list")
     .add({

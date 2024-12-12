@@ -183,7 +183,7 @@ function showOverlayData(title, content, date, imageUrl) {
 
   // 設置內容
   const contentElement = overlay.querySelector(".overlay-content");
-  contentElement.textContent = content;
+  contentElement.innerHTML = content;
 
   // 設置圖片
   const imageElement = overlay.querySelector(".overlay-img");
