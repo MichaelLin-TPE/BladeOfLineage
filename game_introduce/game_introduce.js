@@ -34,33 +34,6 @@ function getSkillIntroduceList() {
         // doc.data() is never undefined for query doc snapshots
 
         console.log(doc.id, " => ", doc.data());
-        const data = doc.data();
-        const attack = data.attack;
-        const closeHit = data.closeHit;
-        const description = data.description;
-        const extraAttack = data.extraAttack;
-        const grip = data.grip;
-        const imageUrl = data.imageUrl;
-        const itemName = data.itemName;
-        const material = data.material;
-        const position = data.position;
-        const source = data.source;
-        const stability = data.stability;
-        const weight = data.weight;
-        addItemRow(
-          position,
-          itemName,
-          imageUrl,
-          attack,
-          grip,
-          stability,
-          material,
-          weight,
-          closeHit,
-          extraAttack,
-          source,
-          description
-        );
       });
     })
     .catch((error) => {
@@ -72,37 +45,72 @@ function getItemIntroduceList() {
   db.collection("item_introduce_list")
     .get()
     .then((querySnapshot) => {
+      const container = document.querySelector(".main_news_list"); // 選取容器
+      // 創建灰色遮罩並添加到 DOM
+      const overlay = document.createElement("div");
+      createOverLayView(overlay);
+
+      overlay.addEventListener("click", () => {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+          overlay.style.display = "none";
+        }, 300); // 與動畫時間一致
+      });
+
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
 
         console.log(doc.id, " => ", doc.data());
         const data = doc.data();
-        const attack = data.attack;
-        const closeHit = data.closeHit;
-        const description = data.description;
-        const extraAttack = data.extraAttack;
-        const grip = data.grip;
-        const imageUrl = data.imageUrl;
-        const itemName = data.itemName;
-        const material = data.material;
-        const position = data.position;
-        const source = data.source;
-        const stability = data.stability;
-        const weight = data.weight;
-        addItemRow(
-          position,
-          itemName,
-          imageUrl,
-          attack,
-          grip,
-          stability,
-          material,
-          weight,
-          closeHit,
-          extraAttack,
-          source,
-          description
-        );
+        const titleFromServer = data.topic;
+        const contentFromServer = data.content;
+        const imageFromServer = data.image_url;
+        const dateFromServer = data.date;
+
+        const div = document.createElement("div");
+        div.className = "item"; // 添加樣式類
+
+        // 創建標題
+        const title = document.createElement("div");
+        title.className = "item-title";
+        title.textContent = getTime(dateFromServer);
+
+        // 創建內容
+        const content = document.createElement("div");
+        content.className = "item-content";
+        content.textContent = titleFromServer;
+
+        // 創建圖片容器
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "item-image";
+
+        // 創建圖片
+        const image = document.createElement("img");
+        image.src = imageFromServer;
+        image.alt = "img";
+
+        // 將圖片添加到圖片容器
+        imageContainer.appendChild(image);
+
+        // 將標題、內容和圖片容器添加到項目容器
+        div.appendChild(title);
+        div.appendChild(content);
+        div.appendChild(imageContainer);
+        // 點擊 item 顯示灰色遮罩
+        div.addEventListener("click", () => {
+          overlay.style.display = "block"; // 顯示遮罩
+          setTimeout(() => {
+            overlay.style.opacity = "1"; // 動畫漸顯
+          }, 10); // 延遲確保 display 已生效
+          showOverlayData(
+            titleFromServer,
+            contentFromServer,
+            dateFromServer,
+            imageFromServer
+          );
+        });
+        // 將項目容器添加到主容器
+        container.appendChild(div);
       });
     })
     .catch((error) => {
@@ -110,115 +118,71 @@ function getItemIntroduceList() {
     });
 }
 
-function adjustOverlayHeight() {
-  const windowHeight = window.innerHeight - 0;
-  const newHeight = windowHeight - 200;
-  const blackOverlay = document.querySelector(".main_news_list");
-  if (blackOverlay) {
-    blackOverlay.style.height = `${newHeight}px`;
-  }
+function getTime(timestampFromServer) {
+  // 將 Firebase timestamp 轉換為 JavaScript 的 Date 對象
+  const dateObject = timestampFromServer.toDate();
+
+  // 格式化日期（例如 YYYY-MM-DD HH:mm）
+  const formattedDate = dateObject.toLocaleString("zh-TW", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+  return formattedDate;
 }
-window.addEventListener("load", adjustOverlayHeight);
-window.addEventListener("resize", adjustOverlayHeight);
 
-function navigateToIndex(event) {
-  event.preventDefault(); // 阻止默認的超連結行為
-  location.replace("../index.html"); // 替換當前頁面的歷史記錄
+function showOverlayData(title, content, date, imageUrl) {
+  const overlay = document.querySelector(".overlay"); // 確保找到遮罩
+
+  // 設置日期
+  const dateElement = overlay.querySelector(".overlay-date");
+  dateElement.textContent = getTime(date); // 使用 getTime 格式化日期
+
+  // 設置標題
+  const titleElement = overlay.querySelector(".overlay-title");
+  titleElement.textContent = title;
+
+  // 設置內容
+  const contentElement = overlay.querySelector(".overlay-content");
+  contentElement.innerHTML = content;
+
+  // 設置圖片
+  const imageElement = overlay.querySelector(".overlay-img");
+  imageElement.src = imageUrl;
+  imageElement.alt = title || "圖片"; // 提供替代文字
 }
 
-function addItemRow(
-  position,
-  itemName,
-  itemImageSrc,
-  attack,
-  grip,
-  stability,
-  material,
-  weight,
-  closeHit,
-  extraAttack,
-  source,
-  description
-) {
-  // 選擇 main_news_list
-  const mainNewsList = document.querySelector(".main_news_list");
-  while (mainNewsList.firstChild) {
-    mainNewsList.removeChild(mainNewsList.firstChild);
-  }
-  // 建立 item_row 的外層 div
-  const itemRow = document.createElement("div");
-  itemRow.classList.add("item_row");
+function createOverLayView(overlay) {
+  overlay.className = "overlay";
+  overlay.style.display = "none"; // 預設隱藏
+  document.body.appendChild(overlay);
 
-  // 建立 main_view 區域
-  const mainView = document.createElement("div");
-  mainView.classList.add("main_view");
+  const date = document.createElement("div");
+  date.className = "overlay-date";
 
-  // 添加 position
-  const positionDiv = document.createElement("div");
-  positionDiv.classList.add("position");
-  positionDiv.textContent = position;
+  // 創建內容
+  const title = document.createElement("div");
+  title.className = "overlay-title";
 
-  // 添加 item_name
-  const itemNameDiv = document.createElement("div");
-  itemNameDiv.classList.add("item_name");
-  const itemNameImg = document.createElement("img");
-  itemNameImg.src = "../images/lineage_item_background.png";
-  itemNameImg.alt = "";
-  const itemNameSpan = document.createElement("span");
-  itemNameSpan.textContent = itemName;
-  itemNameDiv.appendChild(itemNameImg);
-  itemNameDiv.appendChild(itemNameSpan);
+  // 創建內容
+  const content = document.createElement("div");
+  content.className = "overlay-content";
 
-  // 添加 item_image
-  const itemImageDiv = document.createElement("div");
-  itemImageDiv.classList.add("item_image");
-  const itemImage = document.createElement("img");
-  itemImage.src = itemImageSrc.trim();
-  itemImage.alt = "";
-  itemImageDiv.appendChild(itemImage);
-
-  // 添加 basic_property_area
-  const basicPropertyArea = document.createElement("div");
-  basicPropertyArea.classList.add("basic_property_area");
-  basicPropertyArea.innerHTML = `
-    <div>攻擊: ${attack}</div>
-    <div>握拿: ${grip}</div>
-    <div>安定: ${stability}</div>
-    <div>材料: ${material}</div>
-    <div>重量: ${weight}</div>
-  `;
-
-  // 添加 others_property_area
-  const othersPropertyArea = document.createElement("div");
-  othersPropertyArea.classList.add("others_property_area");
-  othersPropertyArea.innerHTML = `
-    <div>近距離命中+${closeHit}</div>
-    <div>額外攻擊點數+${extraAttack}</div>
-  `;
-
-  // 把以上內容加入 main_view
-  mainView.appendChild(positionDiv);
-  mainView.appendChild(itemNameDiv);
-  mainView.appendChild(itemImageDiv);
-  mainView.appendChild(basicPropertyArea);
-  mainView.appendChild(othersPropertyArea);
-
-  // 添加 where_to_get_area
-  const whereToGetArea = document.createElement("div");
-  whereToGetArea.classList.add("where_to_get_area");
-  const leftAlignSpan = document.createElement("span");
-  leftAlignSpan.classList.add("left_align");
-  leftAlignSpan.textContent = source;
-  const descriptionSpan = document.createElement("span");
-  descriptionSpan.classList.add("description");
-  descriptionSpan.textContent = description;
-  whereToGetArea.appendChild(leftAlignSpan);
-  whereToGetArea.appendChild(descriptionSpan);
-
-  // 把 main_view 和 where_to_get_area 加入 item_row
-  itemRow.appendChild(mainView);
-  itemRow.appendChild(whereToGetArea);
-
-  // 把 item_row 加入 main_news_list
-  mainNewsList.appendChild(itemRow);
+  // 創建圖片容器
+  const imageContainer = document.createElement("div");
+  imageContainer.className = "overlay-image";
+  const image = document.createElement("img");
+  image.className = "overlay-img"; // 使用 class 而非 ID
+  image.alt = "overlay image"; // 為圖片提供替代文字
+  // 將圖片添加到圖片容器
+  imageContainer.appendChild(image);
+  // 將標題、內容和圖片容器添加到項目容器
+  overlay.appendChild(date);
+  overlay.appendChild(imageContainer);
+  overlay.appendChild(title);
+  overlay.appendChild(content);
 }

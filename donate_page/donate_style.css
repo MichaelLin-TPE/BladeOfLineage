@@ -47,8 +47,8 @@ html {
   background-image: url("../images/lineage_title.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 20%; /* 根據需要設置寬度 */
-  height: 15%; /* 根據需要設置高度 */
+  width: 15%; /* 根據需要設置寬度 */
+  height: 10%; /* 根據需要設置高度 */
   display: inline-block;
   position: absolute; /* 固定位置 */
   bottom: 20px; /* 從螢幕底部距離 */
